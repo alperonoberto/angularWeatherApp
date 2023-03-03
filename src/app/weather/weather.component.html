@@ -1,0 +1,68 @@
+<div class="container d-flex justify-content-center align-items-center flex-column">
+
+    <form (ngSubmit)="getData(input.value)">
+        <div class="input-group my-3 mt-5">
+            <input class="form-control" #input placeholder="Introduce una ciudad" (ngSubmit)="input">
+            <button type="submit" (click)="getData(input.value)" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header w-100 bg-info text-light">
+            <h3 class="card-title pt-3" style="text-transform: capitalize;">{{ciudad}}</h3>
+            <h5 class="card-text">{{modelData.weather[0].description}}</h5>
+            <img src="http://openweathermap.org/img/wn/{{modelData.weather[0].icon}}@2x.png" class="weather-img" alt="{{modelData.weather[0].icon}}">
+        </div>
+
+        <table class="table table-borderless align-middle">
+            <tbody>
+                <tr class="text-center align-items-center">
+                    <td class="text-start">
+                        <div class="container d-flex flex-column align-items-center">
+                            <i class="bi bi-thermometer-half"></i>
+                            <span>Temperatura</span>
+                        </div>
+                    </td>
+                    <td class="value">{{modelData.main.temp | number: '1.0-0'}}°C</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-start">
+                        <div class="container d-flex flex-column align-items-center">
+                            <i class="bi bi-thermometer-snow"></i>
+                            <span>Mínima</span>
+                        </div>
+                    </td>
+                    <td class="value">{{modelData.main.temp_min | number: '1.0-0'}}°C</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-start">
+                        <div class="container d-flex flex-column align-items-center">
+                            <i class="bi bi-thermometer-sun"></i>
+                            <span>Máxima</span>
+                        </div>
+                    </td>
+                    <td class="value">{{modelData.main.temp_max | number: '1.0-0'}}°C</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-start">
+                        <div class="container d-flex flex-column align-items-center">
+                            <i class="bi bi-moisture"></i>
+                            <span>Humedad</span>
+                        </div>
+                    </td>
+                    <td class="value">{{modelData.main.humidity | number: '1.0-0'}}%</td>
+                </tr>
+                <tr class="text-center">
+                    <td class="text-start">
+                        <div class="container d-flex flex-column align-items-center">
+                            <i class="bi bi-wind"></i>
+                            <span>Viento</span>
+                        </div>
+                    </td>
+                    <td class="value">{{modelData.wind.speed | number: '1.0-0'}} Km/h</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

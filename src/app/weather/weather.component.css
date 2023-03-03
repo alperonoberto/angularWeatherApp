@@ -1,0 +1,21 @@
+i {
+    font-size: 1.4rem;
+}
+
+.value {
+    font-size: 1.4rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-img {
+    width: 8rem;
+    aspect-ratio: 1;
+}
+
+
