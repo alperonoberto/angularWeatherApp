@@ -10,19 +10,24 @@
     
     
         <div class="card" style="width: 18rem;">
-            <div class="card-header w-100 bg-info text-light">
-                <div class="row align-items-center">
+            <div class="card-header w-100 bg-info text-light" style="background-image: url({{image_URL}}); background-size: 28rem; height: 18rem; width: auto;">
+                <div class="row">
                     <div class="col">
                         <h3 class="card-title pt-3" style="text-transform: capitalize;">{{modelData.name}}</h3>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col">
                         <h5 class="card-text">{{modelData.weather[0].description}}</h5>
                         <img src="http://openweathermap.org/img/wn/{{modelData.weather[0].icon}}@2x.png" class="weather-img"
-                            alt="{{modelData.weather[0].icon}}">
+                        alt="{{modelData.weather[0].icon}}">
                     </div>
                     <div class="col-5">
+                        <h5 class="card-text">Sensación térmica</h5>
                         <h1 class="card-text">{{modelData.main.feels_like | number: '1.0-0'}}°C</h1>
                     </div>
                 </div>
-    
+                
                 
             </div>
     
@@ -77,8 +82,5 @@
             </table>
         </div>
     
-    </div>
-    <div class="container">
-        <img src="{{image_URL}}" alt="city" class="img">
     </div>
 </div>

@@ -43,7 +43,7 @@ export class WeatherComponent implements OnInit {
       
       this.imageSearchService.getImages(val).subscribe(data => {
         console.log(data);
-        this.image_URL = data.image_results[0].image.src;
+        this.image_URL = data.results[0].urls.small;
       });
 
       
