@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { WeatherData } from '../weather-data'
+import { ImageSearchService } from '../image-search.service';
 
 @Component({
   selector: 'app-weather',
@@ -14,14 +15,17 @@ export class WeatherComponent implements OnInit {
   API_REQ: string = '';
   API_ICON: string = '';
   icon: string = '';
+  image_URL = '';
 
-    constructor(private weatherService: WeatherService) {
+    constructor(private weatherService: WeatherService, private imageSearchService: ImageSearchService) {
 
     }
 
     ngOnInit(): void {
-      this.getData('gijon')
+      this.getData('gijon');
     }
+
+    
 
     getData(val: string) {
       this.ciudad = val;
@@ -36,6 +40,17 @@ export class WeatherComponent implements OnInit {
           console.log(err);
         }
       })
+      
+      this.imageSearchService.getImages(val).subscribe(data => {
+        console.log(data);
+        this.image_URL = data.image_results[0].image.src;
+      });
+
+      
+
+      this.ciudad = '';
     }
+
+    
     
 }
