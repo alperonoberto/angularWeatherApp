@@ -6,11 +6,6 @@ import { Injectable } from '@angular/core';
 })
 export class ImageSearchService {
 
-  headers = new HttpHeaders({
-    'x-rapidapi-host': 'seo-api.p.rapidapi.com',
-    'x-rapidapi-key': '1a021b7bd1msh1848d81ce7cf30fp1b122fjsnc7ba1f8e0cae'
-  });
-
   header = new HttpHeaders({
     'Client-ID': 'q5U6otkkALCbIzKAaJ4LxJjQH-oJ84qtgcHZ2u1jci8'
   })
